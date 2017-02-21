@@ -15,9 +15,11 @@
 - name: Create galaxy.ini file
   copy: src={{galaxy_config_path}}/galaxy.ini.sample dest={{galaxy_config_path}}/galaxy.ini remote_src=true 
 
-- name: Install Galaxy dependencies
-  shell: ./scripts/common_startup.sh >> {{galaxy_log_path}}/galaxy_common_startup.log
-         chdir={{galaxy_install_path}}
+#- name: Install Galaxy dependencies
+#  shell: ./scripts/common_startup.sh >> {{galaxy_log_path}}/galaxy_common_startup.log
+#         chdir={{galaxy_install_path}}
+
+- include: dependencies.yml
 
 - name: Set Virtualenv
   lineinfile: dest=/home/{{galaxy_user}}/.bashrc

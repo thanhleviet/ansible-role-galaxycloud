@@ -64,8 +64,13 @@ GALAXY_ADMIN_EMAIL: "admin@server.com"
 export_dir: "/export"
 
 # Galaxy reference data are stored here
-#refdata_dir: "/refdata" # FIXME This is our default. The commit should be reverted and the path should be fixed for SLURM clusters.
 refdata_dir: "/refdata"
+
+# Set a version of pip to install
+galaxy_pip_version: 8.1.2
+
+# By default, everything lives in the Galaxy clone
+galaxy_requirements_file: "{{ galaxy_install_path }}/lib/galaxy/dependencies/pinned-requirements.txt"
 
 # Tool dependency directory
 tool_deps_path: "{{ export_dir }}/tool_deps"
